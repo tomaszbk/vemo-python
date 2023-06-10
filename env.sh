@@ -1,0 +1,1 @@
+source ./vemoenv/Scripts/activate
