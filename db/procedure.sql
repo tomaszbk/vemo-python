@@ -1,6 +1,6 @@
 create procedure insertar_pais(
     p_nombre varchar(50),
-    p_poblacion int,
+    p_poblacion BIGINT,
     p_bandera char(2),
     p_nombre_continente varchar(10),
     p_nombres_capitales varchar(50)[],
@@ -27,19 +27,19 @@ BEGIN
     END LOOP;
 
     FOR i IN 1..array_length(p_codigos_monedas, 1) LOOP
-        insert into MonedasPorPais (codigo_moneda,id_pais)
-        VALUES (p_codigos_monedas[i],aux_id_pais);
         IF NOT EXISTS(SELECT 1 from Monedas where codigo_moneda = p_codigos_monedas[i]) then
             insert into Monedas (codigo_moneda,nombre) VALUES (p_codigos_monedas[i], p_nombres_monedas[i]);
         END IF;
+        insert into MonedasPorPais (codigo_moneda,id_pais)
+        VALUES (p_codigos_monedas[i],aux_id_pais);  
     END LOOP;
 
     FOR i IN 1..array_length(p_codigos_lenguajes, 1) LOOP
-        insert into LenguajesPorPais (codigo_lenguaje,id_pais)
-        VALUES (p_codigos_lenguajes[i],aux_id_pais);
         IF NOT EXISTS(SELECT 1 from Lenguajes where codigo_lenguaje = p_codigos_lenguajes[i]) then
             insert into Lenguajes (codigo_lenguaje,nombre) VALUES (p_codigos_lenguajes[i], p_nombres_lenguajes[i]);
         END IF;
+        insert into LenguajesPorPais (codigo_lenguaje,id_pais)
+        VALUES (p_codigos_lenguajes[i],aux_id_pais);
     END LOOP;
 
 

@@ -1,2 +1,8 @@
 FROM postgres:latest
 
+ENV POSTGRES_DB=paises
+ENV POSTGRES_USER=username
+ENV POSTGRES_PASSWORD=password
+EXPOSE 5432
+
+COPY ddl.sql /docker-entrypoint-initdb.d/ddl.sql
