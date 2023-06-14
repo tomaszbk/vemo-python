@@ -2,7 +2,7 @@
 
 create table Continentes(
     id_continente SERIAL PRIMARY KEY,
-    nombre varchar(10)
+    nombre varchar(13)
 );
 
 create table Paises (
