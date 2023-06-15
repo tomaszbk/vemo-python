@@ -10,7 +10,8 @@ data = json.loads(response_API.text)
 
 conn = engine.connect() 
 
-sql = text(f"""CALL insertar_pais(:p_nombre ::text, :p_poblacion ::numeric,:p_bandera ::text,:p_nombre_continente ::text,:p_nombres_capitales,:p_codigos_monedas,
+sql = text(f"""CALL insertar_pais(:p_nombre ::text, :p_poblacion ::numeric,:p_bandera ::text,
+        :p_nombre_continente ::text, :p_nombres_capitales,:p_codigos_monedas,
         :p_nombres_monedas,:p_codigos_lenguajes,:p_nombres_lenguajes)""")
 conn.execute(text("BEGIN;"))
 try:
@@ -20,7 +21,7 @@ try:
                 bandera = country['flag']
                 continente = country['continents'][0]
                 try:
-                        capitales = country['capital'] #ojo nulls
+                        capitales = country['capital']
                 except:
                         capitales = []
                 try:
