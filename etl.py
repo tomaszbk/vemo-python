@@ -40,13 +40,9 @@ try:
                               p_nombres_capitales=capitales, p_codigos_monedas= codigos_monedas, 
                                 p_nombres_monedas= nombres_monedas,
                                 p_codigos_lenguajes=codigos_lenguajes, p_nombres_lenguajes=nombres_lenguajes)
-                # Execute the procedure
+
                 conn.execute(sql, params)
 
-
-                # conn.execute(text(f"""CALL insertar_pais( {nombre}, {poblacion},{bandera},
-                #         {continente}, {capitales}, ARRAY({codigos_monedas}),
-                #         ARRAY({nombres_monedas}), ARRAY({codigos_lenguajes}), ARRAY({nombres_lenguajes}) )"""))
 except Exception as e:
         print("ocurrio un error:")
         print(e)
