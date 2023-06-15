@@ -1,5 +1,6 @@
-# ejecutado todos los dias con crontab: 0 12 * * *
-# localserver:  python -m smtpd -c DebuggingServer -n localhost:1025
+""" ejecutado todos los dias con crontab: 0 12 * * *
+localserver:  python -m smtpd -c DebuggingServer -n localhost:1025 
+puede ser reconfigurado cambiando los valores de las variables establecidas"""
 
 import smtplib
 import mimetypes
