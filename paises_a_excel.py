@@ -28,7 +28,7 @@ continent_count.to_excel(writer, sheet_name='Metricas', startrow=0, startcol=0)
 
 top_5_population_countries = df[['nombre','poblacion']].sort_values('poblacion',ascending=False).head()
 top_5_population_countries.to_excel(writer, sheet_name='Metricas', startrow=10, startcol=0)
-writer.save()
+writer.close()
 
 wb = load_workbook('example.xlsx')
 # wb = writer.book
